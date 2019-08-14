@@ -10,3 +10,20 @@ const isAlphaNumeric = char => {
     ? false
     : true;
 };
+
+//frequency counter
+const anagram = (str1, str2) => {
+  const freq = {};
+  for (let val of str1) {
+    freq[val] ? (freq[val] += 1) : (freq[val] = 1);
+  }
+  for (let val of str2) {
+    if (!freq[val]) {
+      return false;
+    } else {
+      freq[val] -= 1;
+    }
+  }
+
+  return true;
+};
